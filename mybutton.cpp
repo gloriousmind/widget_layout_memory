@@ -7,6 +7,7 @@ MyButton::MyButton(QWidget *parent) : QPushButton(parent)
 
 void MyButton::contextMenuEvent(QContextMenuEvent *event)
 {
+    menu->clear();
     menu->addAction("删除部件", this, &MyButton::removebutton);
     menu->exec(event->globalPos());
     return;

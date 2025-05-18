@@ -13,7 +13,8 @@ MyWidget::MyWidget(QWidget *parent)
     main_layout->addLayout(fixed_button_layout);
 
     scroll_content = new QWidget();
-    scroll_content_layout = new QVBoxLayout(scroll_content);
+    scroll_content_layout = new QGridLayout(scroll_content);
+
     buttons_area->setWidget(scroll_content);
     buttons_area->setWidgetResizable(true);
 
@@ -35,7 +36,14 @@ MyWidget::MyWidget(QWidget *parent)
 void MyWidget::addWidget()
 {
     MyButton *newbutton = new MyButton();
-    scroll_content_layout->addWidget(newbutton);
+    scroll_content_layout->addWidget(newbutton, grid_next_row, grid_next_column);
+    if (grid_next_column + 1 == grid_column_num)
+    {
+        grid_next_column = 0;
+        grid_next_row++;
+    }
+    else
+        grid_next_column++;
     connect(newbutton, &MyButton::buttontoRemove, this, &MyWidget::removeChosenWidget);
     newbutton->setText(QString("button%1").arg(label_index));
     label_index++;

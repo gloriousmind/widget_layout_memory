@@ -29,7 +29,10 @@ private:
     QHBoxLayout *fixed_button_layout;
     QScrollArea *buttons_area;
     QWidget *scroll_content;
-    QVBoxLayout *scroll_content_layout;
+    QGridLayout *scroll_content_layout;
+    int grid_next_row = 0;
+    int grid_next_column = 0;
+    int grid_column_num = 10;
 
     MyButton *addWidget_button;
     MyButton *removeWidget_button;
