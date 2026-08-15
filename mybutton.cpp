@@ -1,3 +1,5 @@
+//按钮样式yyou hua优化 - 流程llian xi练习
+
 #include "mybutton.h"
 
 MyButton::MyButton(QWidget *parent) : QPushButton(parent)
